@@ -1,7 +1,10 @@
 package com.example.recycleviewberita.model;
 
 
-public class BeritaModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class BeritaModel implements Parcelable {
     private String judul;
     private String kategori;
     private String images;
@@ -38,4 +41,41 @@ public class BeritaModel {
     public void setImages(String images) {
         this.images = images;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.judul);
+        dest.writeString(this.kategori);
+        dest.writeString(this.images);
+    }
+
+    public void readFromParcel(Parcel source) {
+        this.judul = source.readString();
+        this.kategori = source.readString();
+        this.images = source.readString();
+    }
+
+    protected BeritaModel(Parcel in) {
+        this.judul = in.readString();
+        this.kategori = in.readString();
+        this.images = in.readString();
+    }
+
+    public static final Parcelable.Creator<BeritaModel> CREATOR = new Parcelable.Creator<BeritaModel>() {
+        @Override
+        public BeritaModel createFromParcel(Parcel source) {
+            return new BeritaModel(source);
+        }
+
+        @Override
+        public BeritaModel[] newArray(int size) {
+            return new BeritaModel[size];
+        }
+    };
 }

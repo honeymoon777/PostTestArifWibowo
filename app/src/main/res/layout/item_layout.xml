@@ -7,56 +7,62 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageBerita"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="30dp"
-            android:layout_weight="3"
-            app:srcCompat="@drawable/ic_launcher_background" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtJudul"
+            <ImageView
+                android:id="@+id/imageBerita"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Judul"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:layout_marginRight="30dp"
+                android:layout_weight="3"
+                app:srcCompat="@drawable/ic_launcher_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtBullet"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtJudul"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="•"
-                    android:textColor="@color/purple_200"
-                    android:textSize="30dp" />
+                    android:text="Judul"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/txtKategori"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="kategori"
-                    android:textColor="@color/teal_200" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtBullet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="•"
+                        android:textColor="@color/purple_200"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:id="@+id/txtKategori"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="kategori"
+                        android:textColor="@color/teal_200" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

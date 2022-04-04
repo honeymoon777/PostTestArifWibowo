@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         listBerita.add(new BeritaModel("Juara Coding itu mantap, ini kata nining","Lifestyle","https://juaracoding.com/public/dummy/img_pak_paulus.png"));
         listBerita.add(new BeritaModel("Banci ini ditangkap warga karna tidak banci","Travel","https://cdn0-production-images-kly.akamaized.net/C78TuqRI6EvujNd5nHZApBQ9apw=/1200x900/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3951801/original/052272700_1646356554-Tessy_1.jpg"));
 
-        BeritaAdapter adapter = new BeritaAdapter(listBerita,this);
+        BeritaAdapter adapter = new BeritaAdapter(listBerita,MainActivity.this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this,LinearLayoutManager.VERTICAL,false);
         rvBerita.setLayoutManager(layoutManager);
         rvBerita.setAdapter(adapter);
