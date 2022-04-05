@@ -13,15 +13,22 @@
         android:layout_height="wrap_content"
         android:text="TextView" />
 
-    <ImageView
-        android:id="@+id/imageBeritaDetail"
+    <TextView
+        android:id="@+id/txtDeskripsi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/txtKategoriDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/imageBeritaDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars" />
+
 </LinearLayout>

@@ -8,14 +8,16 @@ public class BeritaModel implements Parcelable {
     private String judul;
     private String kategori;
     private String images;
+    private String deskripsi;
 
     public BeritaModel() {
     }
 
-    public BeritaModel(String judul, String kategori, String images) {
+    public BeritaModel(String judul, String kategori, String images, String deskripsi) {
         this.judul = judul;
         this.kategori = kategori;
         this.images = images;
+        this.deskripsi = deskripsi;
     }
 
     public String getJudul() {
@@ -42,6 +44,14 @@ public class BeritaModel implements Parcelable {
         this.images = images;
     }
 
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
+
 
     @Override
     public int describeContents() {
@@ -53,18 +63,21 @@ public class BeritaModel implements Parcelable {
         dest.writeString(this.judul);
         dest.writeString(this.kategori);
         dest.writeString(this.images);
+        dest.writeString(this.deskripsi);
     }
 
     public void readFromParcel(Parcel source) {
         this.judul = source.readString();
         this.kategori = source.readString();
         this.images = source.readString();
+        this.deskripsi = source.readString();
     }
 
     protected BeritaModel(Parcel in) {
         this.judul = in.readString();
         this.kategori = in.readString();
         this.images = in.readString();
+        this.deskripsi = in.readString();
     }
 
     public static final Parcelable.Creator<BeritaModel> CREATOR = new Parcelable.Creator<BeritaModel>() {

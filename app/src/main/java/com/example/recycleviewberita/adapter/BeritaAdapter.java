@@ -53,7 +53,7 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.BeritaView
             holder.txtBullet.setTextColor(ColorStateList.valueOf(Color.GREEN));
         }
 
-        holder.cardButton.setOnClickListener(new View.OnClickListener() {
+        holder.txtJudul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailBeritaActivity.class);
