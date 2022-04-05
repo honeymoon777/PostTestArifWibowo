@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         NewsApiInterface newsApiInterface = NewsApiClient.getRetrofit().create(NewsApiInterface.class);
-        Call<News> call = newsApiInterface.getTopHeadLinesNewsByCountry("ca","59430faa9546448da7de3786ace4bdab");
+        Call<News> call = newsApiInterface.getTopHeadLinesNewsByCountry("in","59430faa9546448da7de3786ace4bdab");
 
         call.enqueue(new Callback<News>() {
             @Override
@@ -64,22 +64,45 @@ public class MainActivity extends AppCompatActivity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String cari = editSearch.getText().toString();
-                Call<News> call2 = newsApiInterface.getTopHeadLinesNewsBySearch(cari,"59430faa9546448da7de3786ace4bdab");
-                call2.enqueue(new Callback<News>() {
-                    @Override
-                    public void onResponse(Call<News> call, Response<News> response) {
-                        NewsAdapter adapter = new NewsAdapter(MainActivity.this, response.body().getArticles());
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this,LinearLayoutManager.VERTICAL,false);
-                        rvBerita.setLayoutManager(layoutManager);
-                        rvBerita.setAdapter(adapter);
-                    }
 
-                    @Override
-                    public void onFailure(Call<News> call, Throwable t) {
+                if (editSearch.getText().toString().isEmpty()) {
 
-                    }
-                });
+                    Call<News> call = newsApiInterface.getTopHeadLinesNewsByCountry("in","59430faa9546448da7de3786ace4bdab");
+
+                    call.enqueue(new Callback<News>() {
+                        @Override
+                        public void onResponse(Call<News> call, Response<News> response) {
+                            NewsAdapter adapter = new NewsAdapter(MainActivity.this, response.body().getArticles());
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this,LinearLayoutManager.VERTICAL,false);
+                            rvBerita.setLayoutManager(layoutManager);
+                            rvBerita.setAdapter(adapter);
+                        }
+
+                        @Override
+                        public void onFailure(Call<News> call, Throwable t) {
+                            System.out.println(t);
+                        }
+                    });
+
+                } else {
+
+                    String cari = editSearch.getText().toString();
+                    Call<News> call2 = newsApiInterface.getTopHeadLinesNewsBySearch(cari, "3ee3a1a4fc9044818823b674a74e1146");
+                    call2.enqueue(new Callback<News>() {
+                        @Override
+                        public void onResponse(Call<News> call, Response<News> response) {
+                            NewsAdapter adapter = new NewsAdapter(MainActivity.this, response.body().getArticles());
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
+                            rvBerita.setLayoutManager(layoutManager);
+                            rvBerita.setAdapter(adapter);
+                        }
+
+                        @Override
+                        public void onFailure(Call<News> call, Throwable t) {
+
+                        }
+                    });
+                }
             }
         });
 
